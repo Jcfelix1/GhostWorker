@@ -11,7 +11,7 @@
     }
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #000000;
+      background-color: #111111;
       color: #e5e7eb;
       line-height: 1.6;
     }
@@ -21,7 +21,7 @@
       padding: 0 1rem;
     }
     header {
-      background-color: #000000;
+      background-color: #111111;
       color: #ff851a;
       padding: 1rem 0;
       position: sticky;
@@ -66,11 +66,11 @@
     }
     .cart-button:hover {
       background-color: #ff851a;
-      color: #000000;
+      color: #111111;
     }
     .cart-count {
       background-color: #ffaa66;
-      color: #000000;
+      color: #111111;
       border-radius: 50%;
       padding: 0.2rem 0.5rem;
       font-size: 0.9rem;
@@ -175,7 +175,7 @@
       width: 100%;
       padding: 0.75rem;
       background-color: #ff851a;
-      color: #000000;
+      color: #111111;
       border: none;
       border-radius: 4px;
       font-size: 1rem;
