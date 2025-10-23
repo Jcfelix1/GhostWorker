@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -10,8 +11,8 @@
       padding: 0;
     }
     body {
-      font-family: 'Roboto', Arial, sans-serif;
-      background-color: #0a0f1f;
+      font-family: 'Arial', sans-serif;
+      background-color: #000000;
       color: #e5e7eb;
       line-height: 1.6;
     }
@@ -21,20 +22,21 @@
       padding: 0 1rem;
     }
     header {
-      background-color: #1e3a8a;
-      color: #e5e7eb;
+      background-color: #000000;
+      color: #A67B00;
       padding: 1rem 0;
       position: sticky;
       top: 0;
       z-index: 1000;
+      border-bottom: 2px solid #A67B00;
     }
     .header-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    header h1 {
-      font-size: 2rem;
+    .logo {
+      height: 50px;
     }
     nav ul {
       list-style: none;
@@ -42,31 +44,34 @@
       gap: 1.5rem;
     }
     nav a {
-      color: #e5e7eb;
+      color: #A67B00;
       text-decoration: none;
       font-size: 1.1rem;
       padding: 0.5rem;
       transition: color 0.3s;
     }
     nav a:hover, nav a.active {
-      color: #60a5fa;
+      color: #D4A017; /* Lighter gold for hover/active */
     }
     .cart-button {
       background: none;
-      border: none;
-      color: #e5e7eb;
+      border: 2px solid #A67B00;
+      color: #A67B00;
       font-size: 1.1rem;
       cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
     .cart-button:hover {
-      color: #60a5fa;
+      background-color: #A67B00;
+      color: #000000;
     }
     .cart-count {
-      background-color: #ef4444;
-      color: #e5e7eb;
+      background-color: #D4A017;
+      color: #000000;
       border-radius: 50%;
       padding: 0.2rem 0.5rem;
       font-size: 0.9rem;
@@ -82,15 +87,7 @@
       justify-content: center;
       text-align: center;
       color: #e5e7eb;
-    }
-    #home video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
+      background: url('https://cdn.vecteezy.com/packs/media/videos/preview/1103/hi-tech-digital-circuit-board-abstract-background-4k-video_s-v1.mp4') no-repeat center center/cover;
     }
     #home::before {
       content: '';
@@ -99,7 +96,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(10, 15, 31, 0.7);
+      background: rgba(0, 0, 0, 0.7);
       z-index: 1;
     }
     #home .container {
@@ -109,16 +106,19 @@
     #home h2 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
+      color: #A67B00;
     }
     #home p {
       font-size: 1.2rem;
       max-width: 600px;
       margin: 0 auto;
+      color: #e5e7eb;
     }
     #products h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
       text-align: center;
+      color: #A67B00;
     }
     .product-grid {
       display: grid;
@@ -127,9 +127,9 @@
       padding: 2rem 0;
     }
     .product-card {
-      background-color: #1e293b;
+      background-color: #1a1a1a;
       border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
       overflow: hidden;
       transition: transform 0.3s;
     }
@@ -146,37 +146,37 @@
     }
     .product-card h2 {
       font-size: 1.5rem;
-      color: #e5e7eb;
+      color: #A67B00;
       margin-bottom: 0.5rem;
     }
     .product-card p.description {
-      color: #9ca3af;
+      color: #b0b0b0;
       font-size: 1rem;
       margin-bottom: 1rem;
     }
     .product-card p.price {
       font-size: 1.25rem;
       font-weight: bold;
-      color: #60a5fa;
+      color: #D4A017;
       margin-bottom: 0.5rem;
     }
     .product-card ul {
       list-style: disc;
       padding-left: 1.5rem;
-      color: #9ca3af;
+      color: #b0b0b0;
       font-size: 0.9rem;
       margin-bottom: 0.5rem;
     }
     .product-card p.info {
-      color: #9ca3af;
+      color: #b0b0b0;
       font-size: 0.9rem;
       margin-bottom: 0.5rem;
     }
     .product-card button {
       width: 100%;
       padding: 0.75rem;
-      background-color: #2563eb;
-      color: #e5e7eb;
+      background-color: #A67B00;
+      color: #000000;
       border: none;
       border-radius: 4px;
       font-size: 1rem;
@@ -184,31 +184,32 @@
       transition: background-color 0.3s;
     }
     .product-card button:disabled {
-      background-color: #4b5563;
+      background-color: #4b4b4b;
       cursor: not-allowed;
     }
     .product-card button:hover:not(:disabled) {
-      background-color: #1e40af;
+      background-color: #D4A017;
     }
     .cart-message {
       text-align: center;
-      color: #34d399;
+      color: #D4A017;
       font-size: 0.9rem;
       margin-top: 0.5rem;
     }
     #history {
-      background-color: #111827;
+      background-color: #1a1a1a;
     }
     #history h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
       text-align: center;
+      color: #A67B00;
     }
     #history p {
       font-size: 1.1rem;
       max-width: 800px;
       margin: 0 auto 1rem;
-      color: #9ca3af;
+      color: #b0b0b0;
     }
     .modal {
       display: none;
@@ -223,7 +224,7 @@
       z-index: 1000;
     }
     .modal-content {
-      background-color: #1e293b;
+      background-color: #1a1a1a;
       padding: 2rem;
       border-radius: 8px;
       max-width: 500px;
@@ -232,10 +233,12 @@
       overflow-y: auto;
       position: relative;
       color: #e5e7eb;
+      border: 2px solid #A67B00;
     }
     .modal-content h2 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
+      color: #A67B00;
     }
     .modal-content ul {
       list-style: none;
@@ -243,20 +246,20 @@
     }
     .modal-content li {
       padding: 0.5rem 0;
-      border-bottom: 1px solid #374151;
+      border-bottom: 1px solid #4b4b4b;
       display: flex;
       justify-content: space-between;
     }
     .modal-content button {
       padding: 0.5rem 1rem;
-      background-color: #ef4444;
-      color: #e5e7eb;
+      background-color: #D4A017;
+      color: #000000;
       border: none;
       border-radius: 4px;
       cursor: pointer;
     }
     .modal-content button:hover {
-      background-color: #b91c1c;
+      background-color: #A67B00;
     }
     .close-modal {
       position: absolute;
@@ -264,10 +267,10 @@
       right: 1rem;
       font-size: 1.5rem;
       cursor: pointer;
-      color: #e5e7eb;
+      color: #A67B00;
     }
     footer {
-      background-color: #111827;
+      background-color: #1a1a1a;
       color: #e5e7eb;
       padding: 2rem 0;
       text-align: center;
@@ -277,7 +280,7 @@
       font-size: 1rem;
     }
     .contact-info a {
-      color: #60a5fa;
+      color: #D4A017;
       text-decoration: none;
     }
     .contact-info a:hover {
@@ -316,7 +319,7 @@
 <body>
   <header>
     <div class="container header-content">
-      <h1>GhostWorker</h1>
+      <img src="logo.png" alt="GhostWorker Logo" class="logo">
       <nav>
         <ul>
           <li><a href="#home" class="nav-link active">Home</a></li>
@@ -331,10 +334,6 @@
   </header>
   <main>
     <section id="home">
-      <video autoplay muted loop playsinline>
-        <source src="https://cdn.vecteezy.com/packs/media/videos/preview/1103/hi-tech-digital-circuit-board-abstract-background-4k-video_s-v1.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
       <div class="container">
         <h2>Welcome to GhostWorker</h2>
         <p>In GhostWorker, discover tailored process and data solutions designed to streamline your daily tasks, boost efficiency, and deliver measurable results—so you can focus on what truly matters.</p>
