@@ -318,7 +318,7 @@
 <body>
   <header>
     <div class="container header-content">
-      <img src="logo.png" alt="GhostWorker Logo" class="logo">
+      <img src="logo.jpg" alt="GhostWorker Logo" class="logo">
       <nav>
         <ul>
           <li><a href="#home" class="nav-link active">Home</a></li>
