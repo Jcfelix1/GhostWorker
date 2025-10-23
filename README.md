@@ -1,8 +1,8 @@
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GhostWorker - Software & Consulting Services</title>
+  <title>GhostWorker - Soluciones de Datos Personalizadas</title>
   <style>
     * {
       box-sizing: border-box;
@@ -11,7 +11,7 @@
     }
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #111111;
+      background-color: #000000;
       color: #e5e7eb;
       line-height: 1.6;
     }
@@ -21,7 +21,7 @@
       padding: 0 1rem;
     }
     header {
-      background-color: #111111;
+      background-color: #000000;
       color: #ff851a;
       padding: 1rem 0;
       position: sticky;
@@ -33,6 +33,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
     }
     .logo {
       height: 50px;
@@ -52,6 +57,20 @@
     nav a:hover, nav a.active {
       color: #ffaa66;
     }
+    .language-toggle {
+      background: none;
+      border: 2px solid #ff851a;
+      color: #ff851a;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    .language-toggle:hover {
+      background-color: #ff851a;
+      color: #000000;
+    }
     .cart-button {
       background: none;
       border: 2px solid #ff851a;
@@ -66,11 +85,11 @@
     }
     .cart-button:hover {
       background-color: #ff851a;
-      color: #111111;
+      color: #000000;
     }
     .cart-count {
       background-color: #ffaa66;
-      color: #111111;
+      color: #000000;
       border-radius: 50%;
       padding: 0.2rem 0.5rem;
       font-size: 0.9rem;
@@ -113,7 +132,7 @@
       margin: 0 auto;
       color: #e5e7eb;
     }
-    #products h2 {
+    #products h2, #history h2 {
       font-size: 2rem;
       margin-bottom: 1rem;
       text-align: center;
@@ -175,7 +194,7 @@
       width: 100%;
       padding: 0.75rem;
       background-color: #ff851a;
-      color: #111111;
+      color: #000000;
       border: none;
       border-radius: 4px;
       font-size: 1rem;
@@ -197,12 +216,6 @@
     }
     #history {
       background-color: #1a1a1a;
-    }
-    #history h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      text-align: center;
-      color: #ff851a;
     }
     #history p {
       font-size: 1.1rem;
@@ -288,12 +301,10 @@
     html {
       scroll-behavior: smooth;
     }
-    @media (max-width: 600px) {
-      .product-grid {
-        grid-template-columns: 1fr;
-      }
-      header h1 {
-        font-size: 1.5rem;
+    @media (max-width: 768px) {
+      .header-left {
+        flex-direction: column;
+        gap: 1rem;
       }
       nav ul {
         flex-direction: column;
@@ -303,14 +314,14 @@
         flex-direction: column;
         gap: 1rem;
       }
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
       #home h2 {
         font-size: 1.8rem;
       }
       #home p {
         font-size: 1rem;
-      }
-      .contact-info {
-        font-size: 0.9rem;
       }
     }
   </style>
@@ -318,109 +329,120 @@
 <body>
   <header>
     <div class="container header-content">
-      <img src="logo.jpg" alt="GhostWorker Logo" class="logo">
-      <nav>
-        <ul>
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#products" class="nav-link">Products</a></li>
-          <li><a href="#history" class="nav-link">Our History</a></li>
-        </ul>
-      </nav>
-      <button class="cart-button">
-        Cart <span class="cart-count">0</span>
-      </button>
+      <div class="header-left">
+        <img src="logo.png" alt="GhostWorker Logo" class="logo">
+        <nav>
+          <ul>
+            <li><a href="#home" class="nav-link active" data-en="Home" data-es="Inicio">Inicio</a></li>
+            <li><a href="#products" class="nav-link" data-en="Products" data-es="Productos">Productos</a></li>
+            <li><a href="#history" class="nav-link" data-en="Our History" data-es="Nuestra Historia">Nuestra Historia</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <button class="language-toggle" id="lang-toggle" data-lang="en">🇺🇸 English</button>
+        <button class="cart-button">
+          <span data-en="Cart" data-es="Carrito">Carrito</span> <span class="cart-count">0</span>
+        </button>
+      </div>
     </div>
   </header>
   <main>
     <section id="home">
       <div class="container">
-        <h2>Welcome to GhostWorker</h2>
-        <p>In GhostWorker, discover tailored process and data solutions designed to streamline your daily tasks, boost efficiency, and deliver measurable results—so you can focus on what truly matters.</p>
+        <h2 data-en="Welcome to GhostWorker" data-es="Bienvenido a GhostWorker">Bienvenido a GhostWorker</h2>
+        <p data-en="In GhostWorker, discover tailored process and data solutions designed to streamline your daily tasks, boost efficiency, and deliver measurable results—so you can focus on what truly matters." 
+           data-es="En GhostWorker, descubre soluciones personalizadas de procesos y datos diseñadas para optimizar tus tareas diarias, aumentar la eficiencia y entregar resultados medibles, para que puedas enfocarte en lo que realmente importa.">En GhostWorker, descubre soluciones personalizadas de procesos y datos diseñadas para optimizar tus tareas diarias, aumentar la eficiencia y entregar resultados medibles, para que puedas enfocarte en lo que realmente importa.</p>
       </div>
     </section>
     <section id="products">
       <div class="container">
-        <h2>Our Products</h2>
+        <h2 data-en="Our Products" data-es="Nuestros Productos">Nuestros Productos</h2>
         <div class="product-grid">
           <div class="product-card" data-handle="data-analytics">
             <img src="https://cdn.shopify.com/s/files/1/0956/8065/9751/files/data_analisis.jpg?v=1761168765" alt="Data Analytics">
             <div class="product-card-content">
-              <h2>Data Analytics</h2>
-              <p class="description">Converts complex datasets into actionable insights using statistical analysis, visualization, and predictive modeling. Enables informed decision-making by identifying trends, inefficiencies, and strategic opportunities within business operations.</p>
+              <h2 data-en="Data Analytics" data-es="Análisis de Datos">Análisis de Datos</h2>
+              <p class="description" data-en="Converts complex datasets into actionable insights using statistical analysis, visualization, and predictive modeling. Enables informed decision-making by identifying trends, inefficiencies, and strategic opportunities within business operations." 
+                 data-es="Convierte conjuntos de datos complejos en información accionable mediante análisis estadístico, visualización y modelado predictivo. Permite la toma de decisiones informadas identificando tendencias, ineficiencias y oportunidades estratégicas en las operaciones empresariales.">Convierte conjuntos de datos complejos en información accionable mediante análisis estadístico, visualización y modelado predictivo. Permite la toma de decisiones informadas identificando tendencias, ineficiencias y oportunidades estratégicas en las operaciones empresariales.</p>
               <p class="price">$1500.00</p>
               <ul>
-                <li>technical support</li>
-                <li>customizable interface</li>
-                <li>real time updates</li>
-                <li>data import export</li>
-                <li>cloud based</li>
-                <li>built in templates</li>
+                <li data-en="technical support" data-es="soporte técnico">soporte técnico</li>
+                <li data-en="customizable interface" data-es="interfaz personalizable">interfaz personalizable</li>
+                <li data-en="real time updates" data-es="actualizaciones en tiempo real">actualizaciones en tiempo real</li>
+                <li data-en="data import export" data-es="importación/exportación de datos">importación/exportación de datos</li>
+                <li data-en="cloud based" data-es="basado en la nube">basado en la nube</li>
+                <li data-en="built in templates" data-es="plantillas integradas">plantillas integradas</li>
               </ul>
               <p class="info">OS: windows, macos</p>
               <p class="info">For: individual, large enterprise, small business, medium sized business enterprise</p>
               <p class="info stock">Stock: 2</p>
-              <button data-price="1500.00">Add to Cart</button>
+              <button data-price="1500.00" data-en="Add to Cart" data-es="Agregar al Carrito">Agregar al Carrito</button>
               <p class="cart-message"></p>
             </div>
           </div>
           <div class="product-card" data-handle="etl-pipelines">
             <img src="https://cdn.shopify.com/s/files/1/0956/8065/9751/files/ETLPIPELINE.png?v=1761168863" alt="ETL Pipelines">
             <div class="product-card-content">
-              <h2>ETL Pipelines</h2>
-              <p class="description">Builds and manages ETL (Extract, Transform, Load) pipelines for seamless data integration across multiple sources. Focuses on reliability, data quality, and performance to ensure accurate and efficient data processing for downstream analytics and automation initiatives.</p>
+              <h2 data-en="ETL Pipelines" data-es="Tuberías ETL">Tuberías ETL</h2>
+              <p class="description" data-en="Builds and manages ETL (Extract, Transform, Load) pipelines for seamless data integration across multiple sources. Focuses on reliability, data quality, and performance to ensure accurate and efficient data processing for downstream analytics and automation initiatives." 
+                 data-es="Construye y gestiona tuberías ETL (Extract, Transform, Load) para una integración de datos sin problemas desde múltiples fuentes. Se enfoca en confiabilidad, calidad de datos y rendimiento para garantizar un procesamiento de datos preciso y eficiente para análisis y automatización posteriores.">Construye y gestiona tuberías ETL (Extract, Transform, Load) para una integración de datos sin problemas desde múltiples fuentes. Se enfoca en confiabilidad, calidad de datos y rendimiento para garantizar un procesamiento de datos preciso y eficiente para análisis y automatización posteriores.</p>
               <p class="price">$2000.00</p>
               <ul>
-                <li>cloud based</li>
-                <li>data import export</li>
-                <li>automatic updates</li>
-                <li>technical support</li>
+                <li data-en="cloud based" data-es="basado en la nube">basado en la nube</li>
+                <li data-en="data import export" data-es="importación/exportación de datos">importación/exportación de datos</li>
+                <li data-en="automatic updates" data-es="actualizaciones automáticas">actualizaciones automáticas</li>
+                <li data-en="technical support" data-es="soporte técnico">soporte técnico</li>
               </ul>
               <p class="info">For: large enterprise, medium sized business enterprise, small business</p>
               <p class="info stock">Stock: 2</p>
-              <button data-price="2000.00">Add to Cart</button>
+              <button data-price="2000.00" data-en="Add to Cart" data-es="Agregar al Carrito">Agregar al Carrito</button>
               <p class="cart-message"></p>
             </div>
           </div>
           <div class="product-card" data-handle="process-automation">
             <img src="https://cdn.shopify.com/s/files/1/0956/8065/9751/files/ProcessAutomation.jpg?v=1761168696" alt="Process Automation">
             <div class="product-card-content">
-              <h2>Process Automation</h2>
-              <p class="description">Implements end-to-end automation solutions to streamline operations and reduce manual effort. Focuses on achieving measurable productivity improvements through smart integration of technology and process engineering principles.</p>
+              <h2 data-en="Process Automation" data-es="Automatización de Procesos">Automatización de Procesos</h2>
+              <p class="description" data-en="Implements end-to-end automation solutions to streamline operations and reduce manual effort. Focuses on achieving measurable productivity improvements through smart integration of technology and process engineering principles." 
+                 data-es="Implementa soluciones de automatización de extremo a extremo para optimizar operaciones y reducir el esfuerzo manual. Se enfoca en lograr mejoras medibles de productividad mediante la integración inteligente de tecnología y principios de ingeniería de procesos.">Implementa soluciones de automatización de extremo a extremo para optimizar operaciones y reducir el esfuerzo manual. Se enfoca en lograr mejoras medibles de productividad mediante la integración inteligente de tecnología y principios de ingeniería de procesos.</p>
               <p class="price">$3500.00</p>
               <p class="info">For: medium sized business enterprise, large enterprise, small business</p>
               <p class="info stock">Stock: 2</p>
-              <button data-price="3500.00">Add to Cart</button>
+              <button data-price="3500.00" data-en="Add to Cart" data-es="Agregar al Carrito">Agregar al Carrito</button>
               <p class="cart-message"></p>
             </div>
           </div>
           <div class="product-card" data-handle="process-consulting">
             <img src="https://cdn.shopify.com/s/files/1/0956/8065/9751/files/ProcessConsultingimg.jpg?v=1761168362" alt="Process Consulting">
             <div class="product-card-content">
-              <h2>Process Consulting</h2>
-              <p class="description">Provides strategic guidance to help businesses optimize workflows, eliminate inefficiencies, and improve overall performance. Combines industrial engineering methods with data-driven insights to design lean, scalable, and sustainable processes.</p>
+              <h2 data-en="Process Consulting" data-es="Consultoría de Procesos">Consultoría de Procesos</h2>
+              <p class="description" data-en="Provides strategic guidance to help businesses optimize workflows, eliminate inefficiencies, and improve overall performance. Combines industrial engineering methods with data-driven insights to design lean, scalable, and sustainable processes." 
+                 data-es="Proporciona orientación estratégica para ayudar a las empresas a optimizar flujos de trabajo, eliminar ineficiencias y mejorar el rendimiento general. Combina métodos de ingeniería industrial con información basada en datos para diseñar procesos magros, escalables y sostenibles.">Proporciona orientación estratégica para ayudar a las empresas a optimizar flujos de trabajo, eliminar ineficiencias y mejorar el rendimiento general. Combina métodos de ingeniería industrial con información basada en datos para diseñar procesos magros, escalables y sostenibles.</p>
               <p class="price">$2500.00</p>
               <p class="info">For: medium sized business enterprise, large enterprise, small business</p>
               <p class="info stock">Stock: 10</p>
-              <button data-price="2500.00">Add to Cart</button>
+              <button data-price="2500.00" data-en="Add to Cart" data-es="Agregar al Carrito">Agregar al Carrito</button>
               <p class="cart-message"></p>
             </div>
           </div>
           <div class="product-card" data-handle="robotic-process-automation">
             <img src="https://cdn.shopify.com/s/files/1/0956/8065/9751/files/RPA_image.jpg?v=1761168820" alt="Robotic Process Automation">
             <div class="product-card-content">
-              <h2>Robotic Process Automation</h2>
-              <p class="description">Designs and deploys robotic automation solutions to handle repetitive digital tasks efficiently. Ensures consistency, accuracy, and speed while freeing human resources for higher-value analysis and decision-making.</p>
+              <h2 data-en="Robotic Process Automation" data-es="Automatización Robótica de Procesos">Automatización Robótica de Procesos</h2>
+              <p class="description" data-en="Designs and deploys robotic automation solutions to handle repetitive digital tasks efficiently. Ensures consistency, accuracy, and speed while freeing human resources for higher-value analysis and decision-making." 
+                 data-es="Diseña e implementa soluciones de automatización robótica para manejar tareas digitales repetitivas de manera eficiente. Garantiza consistencia, precisión y velocidad mientras libera recursos humanos para análisis y toma de decisiones de mayor valor.">Diseña e implementa soluciones de automatización robótica para manejar tareas digitales repetitivas de manera eficiente. Garantiza consistencia, precisión y velocidad mientras libera recursos humanos para análisis y toma de decisiones de mayor valor.</p>
               <p class="price">$1500.00</p>
               <ul>
-                <li>technical support</li>
-                <li>customizable interface</li>
-                <li>cloud based</li>
-                <li>automatic updates</li>
-                <li>data import export</li>
+                <li data-en="technical support" data-es="soporte técnico">soporte técnico</li>
+                <li data-en="customizable interface" data-es="interfaz personalizable">interfaz personalizable</li>
+                <li data-en="cloud based" data-es="basado en la nube">basado en la nube</li>
+                <li data-en="automatic updates" data-es="actualizaciones automáticas">actualizaciones automáticas</li>
+                <li data-en="data import export" data-es="importación/exportación de datos">importación/exportación de datos</li>
               </ul>
               <p class="info">For: small business, large enterprise, medium sized business enterprise</p>
               <p class="info stock">Stock: Out of Stock</p>
-              <button data-price="1500.00" disabled>Add to Cart</button>
+              <button data-price="1500.00" disabled data-en="Add to Cart" data-es="Agregar al Carrito">Agregar al Carrito</button>
               <p class="cart-message"></p>
             </div>
           </div>
@@ -429,34 +451,82 @@
     </section>
     <section id="history">
       <div class="container">
-        <h2>Our History</h2>
-        <p>Our journey began with a vision to bridge the worlds of engineering, automation, and data. Founded by Julio Félix, an industrial and data engineer with years of practical experience leading innovative projects, our company was built on a belief that efficiency and technology are the twin engines of modern business transformation.</p>
-        <p>From optimizing industrial processes to developing automated digital ecosystems, we have grown through a passion for solving complex challenges with simple, effective solutions. Every project—from designing ETL pipelines and process automation systems to implementing analytics and RPA solutions—reflects our commitment to precision, innovation, and measurable results.</p>
-        <p>Today, we partner with organizations that want to move forward—integrating smart technology, automation, and strategic insight to achieve excellence. Our history is defined not just by what we’ve built, but by how we’ve empowered others to innovate, optimize, and thrive.</p>
+        <h2 data-en="Our History" data-es="Nuestra Historia">Nuestra Historia</h2>
+        <p data-en="Our journey began with a vision to bridge the worlds of engineering, automation, and data. Founded by Julio Félix, an industrial and data engineer with years of practical experience leading innovative projects, our company was built on a belief that efficiency and technology are the twin engines of modern business transformation." 
+           data-es="Nuestro viaje comenzó con una visión de unir los mundos de la ingeniería, la automatización y los datos. Fundada por Julio Félix, ingeniero industrial y de datos con años de experiencia práctica liderando proyectos innovadores, nuestra empresa se construyó bajo la creencia de que la eficiencia y la tecnología son los motores gemelos de la transformación empresarial moderna.">Nuestro viaje comenzó con una visión de unir los mundos de la ingeniería, la automatización y los datos. Fundada por Julio Félix, ingeniero industrial y de datos con años de experiencia práctica liderando proyectos innovadores, nuestra empresa se construyó bajo la creencia de que la eficiencia y la tecnología son los motores gemelos de la transformación empresarial moderna.</p>
+        <p data-en="From optimizing industrial processes to developing automated digital ecosystems, we have grown through a passion for solving complex challenges with simple, effective solutions. Every project—from designing ETL pipelines and process automation systems to implementing analytics and RPA solutions—reflects our commitment to precision, innovation, and measurable results." 
+           data-es="Desde la optimización de procesos industriales hasta el desarrollo de ecosistemas digitales automatizados, hemos crecido a través de una pasión por resolver desafíos complejos con soluciones simples y efectivas. Cada proyecto—desde el diseño de tuberías ETL y sistemas de automatización de procesos hasta la implementación de soluciones de análisis y RPA—refleja nuestro compromiso con la precisión, la innovación y resultados medibles.">Desde la optimización de procesos industriales hasta el desarrollo de ecosistemas digitales automatizados, hemos crecido a través de una pasión por resolver desafíos complejos con soluciones simples y efectivas. Cada proyecto—desde el diseño de tuberías ETL y sistemas de automatización de procesos hasta la implementación de soluciones de análisis y RPA—refleja nuestro compromiso con la precisión, la innovación y resultados medibles.</p>
+        <p data-en="Today, we partner with organizations that want to move forward—integrating smart technology, automation, and strategic insight to achieve excellence. Our history is defined not just by what we've built, but by how we've empowered others to innovate, optimize, and thrive." 
+           data-es="Hoy, nos asociamos con organizaciones que quieren avanzar—integrando tecnología inteligente, automatización e información estratégica para alcanzar la excelencia. Nuestra historia no se define solo por lo que hemos construido, sino por cómo hemos empoderado a otros para innovar, optimizar y prosperar.">Hoy, nos asociamos con organizaciones que quieren avanzar—integrando tecnología inteligente, automatización e información estratégica para alcanzar la excelencia. Nuestra historia no se define solo por lo que hemos construido, sino por cómo hemos empoderado a otros para innovar, optimizar y prosperar.</p>
       </div>
     </section>
   </main>
   <div class="modal" id="cart-modal">
     <div class="modal-content">
       <span class="close-modal">&times;</span>
-      <h2>Shopping Cart</h2>
+      <h2 data-en="Shopping Cart" data-es="Carrito de Compras">Carrito de Compras</h2>
       <ul id="cart-items"></ul>
-      <p id="cart-total">Total: $0.00</p>
-      <button id="clear-cart">Clear Cart</button>
+      <p id="cart-total" data-en="Total: $0.00" data-es="Total: $0.00">Total: $0.00</p>
+      <button id="clear-cart" data-en="Clear Cart" data-es="Vaciar Carrito">Vaciar Carrito</button>
     </div>
   </div>
   <footer>
     <div class="container">
-      <p>&copy; 2025 GhostWorker. All rights reserved.</p>
+      <p data-en="© 2025 GhostWorker. All rights reserved." data-es="© 2025 GhostWorker. Todos los derechos reservados.">© 2025 GhostWorker. Todos los derechos reservados.</p>
       <div class="contact-info">
-        <p>Instagram: <a href="https://www.instagram.com/GhostWorker" target="_blank">@GhostWorker</a></p>
-        <p>Email: <a href="mailto:ghost_worker@outlook.com">ghost_worker@outlook.com</a></p>
-        <p>Phone: <a href="tel:+18296473440">+1 829 647 3440</a></p>
+        <p data-en="Instagram:" data-es="Instagram:">Instagram: <a href="https://www.instagram.com/GhostWorker" target="_blank">@GhostWorker</a></p>
+        <p data-en="Email:" data-es="Correo:">Correo: <a href="mailto:ghost_worker@outlook.com">ghost_worker@outlook.com</a></p>
+        <p data-en="Phone:" data-es="Teléfono:">Teléfono: <a href="tel:+18296473440">+1 829 647 3440</a></p>
       </div>
     </div>
   </footer>
+
   <script>
     let cart = [];
+    let currentLang = 'es'; // Spanish default
+
+    const translations = {
+      en: {
+        langToggle: '🇺🇸 English',
+        cart: 'Cart'
+      },
+      es: {
+        langToggle: '🇺🇸 English',
+        cart: 'Carrito'
+      }
+    };
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.title = lang === 'es' ? 
+        'GhostWorker - Soluciones de Datos Personalizadas' : 
+        'GhostWorker - Software & Consulting Services';
+
+      // Update all translatable elements
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute(`data-${lang}`);
+        if (text) {
+          if (el.tagName === 'BUTTON' || el.tagName === 'LI') {
+            el.textContent = text;
+          } else {
+            el.innerHTML = text;
+          }
+        }
+      });
+
+      // Update language toggle button
+      const langToggle = document.getElementById('lang-toggle');
+      langToggle.textContent = translations[lang].langToggle;
+      langToggle.setAttribute('data-lang', lang === 'es' ? 'en' : 'es');
+
+      // Update cart button
+      const cartBtnText = document.querySelector('.cart-button span');
+      cartBtnText.textContent = translations[lang].cart;
+
+      // Store preference
+      localStorage.setItem('ghostworker-lang', lang);
+    }
 
     function updateCartDisplay() {
       const cartItems = document.getElementById('cart-items');
@@ -479,7 +549,23 @@
       cartCount.textContent = totalItems;
     }
 
-    document.querySelectorAll('.product-card button').forEach(button => {
+    // Initialize language
+    function initLanguage() {
+      const savedLang = localStorage.getItem('ghostworker-lang');
+      const browserLang = navigator.language.startsWith('es') ? 'es' : 'en';
+      
+      // Default to Spanish, then saved preference, then browser language
+      const initialLang = savedLang || (browserLang === 'es' ? 'es' : 'es');
+      setLanguage(initialLang);
+    }
+
+    // Event listeners
+    document.getElementById('lang-toggle').addEventListener('click', () => {
+      const nextLang = currentLang === 'es' ? 'en' : 'es';
+      setLanguage(nextLang);
+    });
+
+    document.querySelectorAll('.product-card button:not([disabled])').forEach(button => {
       button.addEventListener('click', () => {
         const card = button.closest('.product-card');
         const title = card.querySelector('h2').textContent;
@@ -489,15 +575,18 @@
         const messageElement = card.querySelector('.cart-message');
 
         if (stockText.includes('Out of Stock')) {
-          messageElement.textContent = `${title} is out of stock.`;
+          messageElement.textContent = currentLang === 'es' ? 
+            `${title} no tiene stock.` : `${title} is out of stock.`;
         } else {
           const existingItem = cart.find(item => item.title === title);
           if (existingItem) {
-            messageElement.textContent = `${title} is already in the cart.`;
+            messageElement.textContent = currentLang === 'es' ? 
+              `${title} ya está en el carrito.` : `${title} is already in the cart.`;
           } else {
             cart.push({ title, price, quantity: 1 });
             updateCartDisplay();
-            messageElement.textContent = `${title} added to cart!`;
+            messageElement.textContent = currentLang === 'es' ? 
+              `${title} agregado al carrito!` : `${title} added to cart!`;
           }
         }
 
@@ -520,6 +609,7 @@
     const cartButton = document.querySelector('.cart-button');
     const cartModal = document.getElementById('cart-modal');
     const closeModal = document.querySelector('.close-modal');
+    const clearCartBtn = document.getElementById('clear-cart');
 
     cartButton.addEventListener('click', () => {
       cartModal.style.display = 'flex';
@@ -535,10 +625,13 @@
       }
     });
 
-    document.getElementById('clear-cart').addEventListener('click', () => {
+    clearCartBtn.addEventListener('click', () => {
       cart = [];
       updateCartDisplay();
     });
+
+    // Initialize
+    initLanguage();
   </script>
 </body>
 </html>
