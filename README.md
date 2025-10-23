@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -72,12 +71,8 @@
       padding: 0.2rem 0.5rem;
       font-size: 0.9rem;
     }
-    .section {
+    section {
       padding: 3rem 0;
-      display: none;
-    }
-    .section.active {
-      display: block;
     }
     #home {
       position: relative;
@@ -119,6 +114,11 @@
       font-size: 1.2rem;
       max-width: 600px;
       margin: 0 auto;
+    }
+    #products h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
     }
     .product-grid {
       display: grid;
@@ -198,7 +198,6 @@
     }
     #history {
       background-color: #111827;
-      padding: 3rem 0;
     }
     #history h2 {
       font-size: 2rem;
@@ -284,6 +283,9 @@
     .contact-info a:hover {
       text-decoration: underline;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     @media (max-width: 600px) {
       .product-grid {
         grid-template-columns: 1fr;
@@ -328,7 +330,7 @@
     </div>
   </header>
   <main>
-    <section id="home" class="section active">
+    <section id="home">
       <video autoplay muted loop playsinline>
         <source src="https://cdn.vecteezy.com/packs/media/videos/preview/1103/hi-tech-digital-circuit-board-abstract-background-4k-video_s-v1.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -338,7 +340,7 @@
         <p>In GhostWorker, discover tailored process and data solutions designed to streamline your daily tasks, boost efficiency, and deliver measurable results—so you can focus on what truly matters.</p>
       </div>
     </section>
-    <section id="products" class="section">
+    <section id="products">
       <div class="container">
         <h2>Our Products</h2>
         <div class="product-grid">
@@ -358,7 +360,7 @@
               </ul>
               <p class="info">OS: windows, macos</p>
               <p class="info">For: individual, large enterprise, small business, medium sized business enterprise</p>
-              <p class="info">Stock: 2</p>
+              <p class="info stock">Stock: 2</p>
               <button data-price="1500.00">Add to Cart</button>
               <p class="cart-message"></p>
             </div>
@@ -376,7 +378,7 @@
                 <li>technical support</li>
               </ul>
               <p class="info">For: large enterprise, medium sized business enterprise, small business</p>
-              <p class="info">Stock: 2</p>
+              <p class="info stock">Stock: 2</p>
               <button data-price="2000.00">Add to Cart</button>
               <p class="cart-message"></p>
             </div>
@@ -388,7 +390,7 @@
               <p class="description">Implements end-to-end automation solutions to streamline operations and reduce manual effort. Focuses on achieving measurable productivity improvements through smart integration of technology and process engineering principles.</p>
               <p class="price">$3500.00</p>
               <p class="info">For: medium sized business enterprise, large enterprise, small business</p>
-              <p class="info">Stock: 2</p>
+              <p class="info stock">Stock: 2</p>
               <button data-price="3500.00">Add to Cart</button>
               <p class="cart-message"></p>
             </div>
@@ -400,7 +402,7 @@
               <p class="description">Provides strategic guidance to help businesses optimize workflows, eliminate inefficiencies, and improve overall performance. Combines industrial engineering methods with data-driven insights to design lean, scalable, and sustainable processes.</p>
               <p class="price">$2500.00</p>
               <p class="info">For: medium sized business enterprise, large enterprise, small business</p>
-              <p class="info">Stock: 10</p>
+              <p class="info stock">Stock: 10</p>
               <button data-price="2500.00">Add to Cart</button>
               <p class="cart-message"></p>
             </div>
@@ -419,7 +421,7 @@
                 <li>data import export</li>
               </ul>
               <p class="info">For: small business, large enterprise, medium sized business enterprise</p>
-              <p class="info">Stock: Out of Stock</p>
+              <p class="info stock">Stock: Out of Stock</p>
               <button data-price="1500.00" disabled>Add to Cart</button>
               <p class="cart-message"></p>
             </div>
@@ -427,7 +429,7 @@
         </div>
       </div>
     </section>
-    <section id="history" class="section">
+    <section id="history">
       <div class="container">
         <h2>Our History</h2>
         <p>Our journey began with a vision to bridge the worlds of engineering, automation, and data. Founded by Julio Félix, an industrial and data engineer with years of practical experience leading innovative projects, our company was built on a belief that efficiency and technology are the twin engines of modern business transformation.</p>
@@ -458,17 +460,6 @@
   <script>
     let cart = [];
 
-    function showSection(sectionId) {
-      document.querySelectorAll('.section').forEach(section => {
-        section.classList.remove('active');
-      });
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-      });
-      document.getElementById(sectionId).classList.add('active');
-      document.querySelector(`a[href="#${sectionId}"]`).classList.add('active');
-    }
-
     function updateCartDisplay() {
       const cartItems = document.getElementById('cart-items');
       const cartTotal = document.getElementById('cart-total');
@@ -495,7 +486,8 @@
         const card = button.closest('.product-card');
         const title = card.querySelector('h2').textContent;
         const price = parseFloat(button.getAttribute('data-price'));
-        const stockText = card.querySelector('.info:last-of-type').textContent;
+        const stockElement = card.querySelector('.info.stock');
+        const stockText = stockElement ? stockElement.textContent : '';
         const messageElement = card.querySelector('.cart-message');
 
         if (stockText.includes('Out of Stock')) {
@@ -521,7 +513,9 @@
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const sectionId = link.getAttribute('href').substring(1);
-        showSection(sectionId);
+        document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
       });
     });
 
@@ -547,9 +541,6 @@
       cart = [];
       updateCartDisplay();
     });
-
-    // Initialize with Home section active
-    showSection('home');
   </script>
 </body>
 </html>
