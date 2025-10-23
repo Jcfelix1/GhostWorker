@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -23,12 +22,12 @@
     }
     header {
       background-color: #000000;
-      color: #A67B00;
+      color: #ff851a;
       padding: 1rem 0;
       position: sticky;
       top: 0;
       z-index: 1000;
-      border-bottom: 2px solid #A67B00;
+      border-bottom: 2px solid #ff851a;
     }
     .header-content {
       display: flex;
@@ -44,19 +43,19 @@
       gap: 1.5rem;
     }
     nav a {
-      color: #A67B00;
+      color: #ff851a;
       text-decoration: none;
       font-size: 1.1rem;
       padding: 0.5rem;
       transition: color 0.3s;
     }
     nav a:hover, nav a.active {
-      color: #D4A017; /* Lighter gold for hover/active */
+      color: #ffaa66;
     }
     .cart-button {
       background: none;
-      border: 2px solid #A67B00;
-      color: #A67B00;
+      border: 2px solid #ff851a;
+      color: #ff851a;
       font-size: 1.1rem;
       cursor: pointer;
       padding: 0.5rem 1rem;
@@ -66,11 +65,11 @@
       gap: 0.5rem;
     }
     .cart-button:hover {
-      background-color: #A67B00;
+      background-color: #ff851a;
       color: #000000;
     }
     .cart-count {
-      background-color: #D4A017;
+      background-color: #ffaa66;
       color: #000000;
       border-radius: 50%;
       padding: 0.2rem 0.5rem;
@@ -87,7 +86,7 @@
       justify-content: center;
       text-align: center;
       color: #e5e7eb;
-      background: url('https://cdn.vecteezy.com/packs/media/videos/preview/1103/hi-tech-digital-circuit-board-abstract-background-4k-video_s-v1.mp4') no-repeat center center/cover;
+      background: url('background.jpg') no-repeat center center/cover;
     }
     #home::before {
       content: '';
@@ -106,7 +105,7 @@
     #home h2 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: #A67B00;
+      color: #ff851a;
     }
     #home p {
       font-size: 1.2rem;
@@ -118,7 +117,7 @@
       font-size: 2rem;
       margin-bottom: 1rem;
       text-align: center;
-      color: #A67B00;
+      color: #ff851a;
     }
     .product-grid {
       display: grid;
@@ -146,7 +145,7 @@
     }
     .product-card h2 {
       font-size: 1.5rem;
-      color: #A67B00;
+      color: #ff851a;
       margin-bottom: 0.5rem;
     }
     .product-card p.description {
@@ -157,7 +156,7 @@
     .product-card p.price {
       font-size: 1.25rem;
       font-weight: bold;
-      color: #D4A017;
+      color: #ffaa66;
       margin-bottom: 0.5rem;
     }
     .product-card ul {
@@ -175,7 +174,7 @@
     .product-card button {
       width: 100%;
       padding: 0.75rem;
-      background-color: #A67B00;
+      background-color: #ff851a;
       color: #000000;
       border: none;
       border-radius: 4px;
@@ -188,11 +187,11 @@
       cursor: not-allowed;
     }
     .product-card button:hover:not(:disabled) {
-      background-color: #D4A017;
+      background-color: #ffaa66;
     }
     .cart-message {
       text-align: center;
-      color: #D4A017;
+      color: #ffaa66;
       font-size: 0.9rem;
       margin-top: 0.5rem;
     }
@@ -203,7 +202,7 @@
       font-size: 2rem;
       margin-bottom: 1rem;
       text-align: center;
-      color: #A67B00;
+      color: #ff851a;
     }
     #history p {
       font-size: 1.1rem;
@@ -233,12 +232,12 @@
       overflow-y: auto;
       position: relative;
       color: #e5e7eb;
-      border: 2px solid #A67B00;
+      border: 2px solid #ff851a;
     }
     .modal-content h2 {
       font-size: 1.5rem;
       margin-bottom: 1rem;
-      color: #A67B00;
+      color: #ff851a;
     }
     .modal-content ul {
       list-style: none;
@@ -252,14 +251,14 @@
     }
     .modal-content button {
       padding: 0.5rem 1rem;
-      background-color: #D4A017;
+      background-color: #ffaa66;
       color: #000000;
       border: none;
       border-radius: 4px;
       cursor: pointer;
     }
     .modal-content button:hover {
-      background-color: #A67B00;
+      background-color: #ff851a;
     }
     .close-modal {
       position: absolute;
@@ -267,7 +266,7 @@
       right: 1rem;
       font-size: 1.5rem;
       cursor: pointer;
-      color: #A67B00;
+      color: #ff851a;
     }
     footer {
       background-color: #1a1a1a;
@@ -280,7 +279,7 @@
       font-size: 1rem;
     }
     .contact-info a {
-      color: #D4A017;
+      color: #ffaa66;
       text-decoration: none;
     }
     .contact-info a:hover {
